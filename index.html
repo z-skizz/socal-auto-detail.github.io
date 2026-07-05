@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoCal Auto Detailing — Interior Detailing, Orange County & Inland Empire</title>
+<meta name="description" content="SoCal Auto Detailing offers premium mobile interior detailing across Orange County and the Inland Empire. Call (951) 561-9321 to book.">
+
+<!--
+  ============================================================
+  SOCAL AUTO DETAILING — SITE FILE MAP (read me first)
+  ============================================================
+  This is a single-file website: all HTML, CSS and JS live here.
+  To edit anything, just find the matching comment below.
+
+  QUICK EDIT INDEX
+  -----------------
+  [EDIT: PHONE NUMBER]      — appears 3 times, search for "9515619321"
+  [EDIT: SERVICES]          — the single service card, add more by copying the block
+  [EDIT: PRICING]           — inside the service card
+  [EDIT: SERVICE AREA]      — city list, Orange County / Inland Empire
+  [EDIT: PHOTOS]            — every spot with a photo placeholder is labeled
+  [EDIT: SOCIAL LINKS]      — footer, Instagram/Yelp/Google placeholders
+  [EDIT: BUSINESS HOURS]    — footer
+  [EDIT: LOGO / WORDMARK]   — header, currently text-based
+  [EDIT: COLORS]            — CSS variables at the top of <style>, change once, applies everywhere
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     [EDIT: COLORS] — change the palette here, it applies site-wide
+     ============================================================ */
+  :root{
+    --black:        #0a0b0d;   /* primary background */
+    --charcoal:     #15171b;   /* secondary/alt section background */
+    --charcoal-2:   #1c1f24;   /* card background */
+    --gold:         #c6a664;   /* primary accent — "champagne gold" */
+    --gold-dim:     #8f8058;   /* muted gold for hairlines/borders */
+    --ivory:        #f3efe6;   /* primary text on dark */
+    --graphite:     #9a9ea5;   /* secondary/muted text */
+    --hairline:     rgba(198,166,100,0.22);
+
+    --display: "Cormorant", serif;
+    --body: "Manrope", sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--black);
+    color: var(--ivory);
+    font-family: var(--body);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; }
+
+  .eyebrow{
+    font-family: var(--body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  h1,h2,h3{
+    font-family: var(--display);
+    font-weight: 500;
+    line-height: 1.08;
+    margin: 0;
+    color: var(--ivory);
+  }
+
+  .wrap{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  /* ---------------- HEADER ---------------- */
+  header{
+    position: sticky;
+    top:0;
+    z-index: 50;
+    background: rgba(10,11,13,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  /* [EDIT: LOGO / WORDMARK] — swap this span for an <img> if you get a logo made */
+  .logo{
+    font-family: var(--display);
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--ivory);
+    text-decoration: none;
+    display:flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .logo em{
+    font-style: normal;
+    color: var(--gold);
+  }
+  .call-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: background 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+  }
+  .call-btn:hover{ background: var(--gold); color: var(--black); }
+
+  /* ---------------- HERO ---------------- */
+  .hero{
+    position: relative;
+    padding: 130px 32px 110px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(198,166,100,0.10), transparent 60%),
+      var(--black);
+    text-align:center;
+  }
+  .hero-inner{ max-width: 780px; margin: 0 auto; position: relative; z-index: 2; }
+  .hero .eyebrow{ display:block; margin-bottom: 22px; }
+  .hero h1{
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    letter-spacing: 0.005em;
+  }
+  .hero h1 .sheen{
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(100deg, var(--ivory) 30%, var(--gold) 45%, var(--ivory) 60%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: sheen-sweep 5.5s ease-in-out 0.4s 1;
+  }
+  @keyframes sheen-sweep{
+    0%{ background-position: 100% 0; }
+    45%{ background-position: 0% 0; }
+    100%{ background-position: 0% 0; }
+  }
+  .hero p.lede{
+    margin: 26px auto 0;
+    max-width: 540px;
+    color: var(--graphite);
+    font-size: 1.08rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .hero-cta{
+    margin-top: 42px;
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap: wrap;
+  }
+  .btn-primary{
+    background: var(--gold);
+    color: var(--black);
+    text-decoration:none;
+    padding: 16px 34px;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(198,166,100,0.25); }
+  .btn-secondary{
+    border: 1px solid var(--hairline);
+    color: var(--ivory);
+    text-decoration:none;
+    padding: 16px 34px;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: border-color 0.25s ease;
+  }
+  .btn-secondary:hover{ border-color: var(--gold); }
+
+  /* subtle decorative motif — a single continuous line evoking a body-panel reflection */
+  .hero-motif{
+    position:absolute;
+    left:50%;
+    top:0;
+    transform: translateX(-50%);
+    width: 1400px;
+    max-width: 220vw;
+    opacity: 0.35;
+    pointer-events:none;
+    z-index:1;
+  }
+
+  /* ---------------- SECTION GENERIC ---------------- */
+  section{ padding: 100px 0; }
+  .section-alt{ background: var(--charcoal); }
+  .section-head{ text-align:center; max-width: 620px; margin: 0 auto 56px; }
+  .section-head .eyebrow{ display:block; margin-bottom: 16px; }
+  .section-head h2{ font-size: clamp(2rem, 4vw, 2.7rem); }
+  .section-head p{ color: var(--graphite); margin-top: 18px; font-weight:300; line-height:1.7; }
+  .divider{
+    width: 64px; height: 1px; background: var(--gold-dim);
+    margin: 22px auto 0;
+  }
+
+  /* ---------------- SERVICE CARD ---------------- */
+  /* [EDIT: SERVICES] — duplicate .service-card to add more offerings later */
+  .service-grid{
+    display:flex;
+    justify-content:center;
+  }
+  .service-card{
+    background: var(--charcoal-2);
+    border: 1px solid var(--hairline);
+    max-width: 480px;
+    width:100%;
+    padding: 56px 48px;
+    position: relative;
+    border-radius: 4px;
+  }
+  .service-card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .service-card .service-name{
+    font-family: var(--display);
+    font-size: 1.9rem;
+    color: var(--ivory);
+  }
+  /* [EDIT: PRICING] — the number below */
+  .service-card .price{
+    font-family: var(--display);
+    font-size: 2.6rem;
+    color: var(--gold);
+    margin: 6px 0 26px;
+  }
+  .service-card .price sup{
+    font-size: 1.1rem;
+    top: -1.2em;
+  }
+  .service-card ul{
+    list-style: none;
+    padding:0;
+    margin: 0 0 34px;
+    display:grid;
+    gap: 14px;
+  }
+  .service-card li{
+    display:flex;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--graphite);
+    font-weight: 300;
+    line-height:1.5;
+  }
+  .service-card li svg{ flex:none; margin-top:3px; }
+  .service-card .btn-primary{ width:100%; text-align:center; }
+
+  /* ---------------- PILLARS (why us) ---------------- */
+  .pillars{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .pillar{ text-align:center; padding: 0 12px; }
+  .pillar .icon{
+    width: 46px; height:46px;
+    margin: 0 auto 22px;
+    color: var(--gold);
+  }
+  .pillar h3{ font-size: 1.3rem; margin-bottom: 10px; }
+  .pillar p{ color: var(--graphite); font-size: 0.92rem; line-height:1.7; font-weight:300; margin:0; }
+
+  /* ---------------- SERVICE AREA ---------------- */
+  .area-layout{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items:center;
+  }
+  .area-copy p{ color: var(--graphite); line-height:1.8; font-weight:300; }
+  .region-list{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+    list-style:none;
+    padding:0;
+    margin: 26px 0 0;
+  }
+  .region-list li{
+    font-size: 0.92rem;
+    color: var(--ivory);
+    padding-left: 16px;
+    position:relative;
+    font-weight: 300;
+  }
+  .region-list li::before{
+    content:"";
+    position:absolute; left:0; top:0.55em;
+    width:5px; height:5px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+  .region-group-label{
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin: 22px 0 4px;
+    font-weight: 700;
+  }
+  .region-group-label:first-child{ margin-top:0; }
+
+  /* [EDIT: PHOTOS] — decorative photo placeholder for the service-area section.
+     Replace this whole .photo-frame block with:
+     <img src="your-photo.jpg" alt="Detailed vehicle interior in Orange County" style="width:100%;border-radius:4px;">
+  */
+  .photo-frame{
+    aspect-ratio: 4/5;
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(160deg, var(--charcoal-2), var(--black));
+    position:relative;
+    overflow:hidden;
+  }
+  .photo-frame .placeholder-text{
+    color: var(--gold-dim);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align:center;
+    padding: 20px;
+    border: 1px dashed var(--hairline);
+    margin: 20px;
+  }
+
+  /* ---------------- FINAL CTA ---------------- */
+  .cta-band{
+    text-align:center;
+    background: linear-gradient(180deg, var(--charcoal), var(--black));
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cta-band h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 20px; }
+  .cta-band .phone-big{
+    font-family: var(--display);
+    color: var(--gold);
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-decoration:none;
+    letter-spacing: 0.02em;
+  }
+  .cta-band p.note{ color: var(--graphite); margin-top: 16px; font-weight:300; }
+
+  /* ---------------- FOOTER ---------------- */
+  footer{ padding: 64px 0 40px; }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .footer-col h4{
+    font-family: var(--body);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .footer-col p, .footer-col a{
+    display:block;
+    color: var(--graphite);
+    text-decoration:none;
+    font-size: 0.92rem;
+    line-height: 2;
+    font-weight:300;
+  }
+  .footer-col a:hover{ color: var(--gold); }
+  .footer-logo{
+    font-family: var(--display);
+    font-size: 1.6rem;
+    color: var(--ivory);
+    margin-bottom: 12px;
+  }
+  .footer-logo em{ font-style:normal; color: var(--gold); }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top: 28px;
+    color: var(--graphite);
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ---------------- RESPONSIVE ---------------- */
+  @media (max-width: 860px){
+    .pillars{ grid-template-columns: 1fr; gap: 44px; }
+    .area-layout{ grid-template-columns: 1fr; }
+    .photo-frame{ aspect-ratio: 16/9; order: -1; }
+    .footer-grid{ grid-template-columns: 1fr; gap: 32px; }
+    .nav{ padding: 16px 20px; }
+    .call-btn span.full{ display:none; }
+  }
+  @media (max-width: 480px){
+    .hero{ padding: 100px 20px 80px; }
+    section{ padding: 72px 0; }
+    .service-card{ padding: 40px 28px; }
+  }
+
+  /* focus visibility for accessibility */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="nav">
+    <a href="#top" class="logo">SoCal <em>Auto Detailing</em></a>
+    <!-- [EDIT: PHONE NUMBER] -->
+    <a class="call-btn" href="tel:19515619321">
+      <span class="full">Call</span> (951) 561-9321
+    </a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <span class="eyebrow">Southern California · Mobile Interior Detailing</span>
+    <h1>Interior perfection,<br><span class="sheen">delivered to your driveway.</span></h1>
+    <p class="lede">
+      SoCal Auto Detailing brings a meticulous, hand-finished interior service
+      to Orange County and the Inland Empire — no shop drop-off, no waiting room.
+      Just a showroom-quality cabin, wherever you park.
+    </p>
+    <div class="hero-cta">
+      <a class="btn-primary" href="tel:19515619321">Book by Phone</a>
+      <a class="btn-secondary" href="#service">View Service &amp; Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICE ================= -->
+<section id="service">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The Service</span>
+      <h2>Interior Detailing</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="service-grid">
+      <!-- [EDIT: SERVICES] To add a second service, copy this entire .service-card div and edit its contents. -->
+      <div class="service-card">
+        <div class="service-name">Full Interior Detail</div>
+        <!-- [EDIT: PRICING] -->
+        <div class="price"><sup>$</sup>140</div>
+        <ul>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Complete vacuum — seats, carpets, trunk, and trim
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Steam-cleaned and conditioned upholstery or leather
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Dash, console, and door panel detailing with UV-safe protectant
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Streak-free interior glass and mirrors
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Odor neutralization, not just fragrance masking
+          </li>
+        </ul>
+        <!-- Note: the inclusions above are a reasonable starting list — confirm/edit them to exactly match what you deliver. -->
+        <a class="btn-primary" href="tel:19515619321">Call to Book — (951) 561-9321</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY US / PILLARS ================= -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The Standard</span>
+      <h2>Detail work, done properly.</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.2"/><path d="M24 14v10l7 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Meticulous by Habit</h3>
+        <p>Every panel, vent, and seam is worked by hand — nothing is rushed to hit a quota.</p>
+      </div>
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="8" y="18" width="32" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="34" r="3" stroke="currentColor" stroke-width="1.2"/><circle cx="32" cy="34" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 24l4-8h12l4 8" stroke="currentColor" stroke-width="1.2"/></svg>
+        <h3>We Come to You</h3>
+        <p>Home, office, or curbside — fully mobile service across the OC and IE.</p>
+      </div>
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 8l4 8 9 1-6.5 6.5L32 32l-8-4.5L16 32l1.5-8.5L11 17l9-1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        <h3>Premium Materials Only</h3>
+        <p>pH-balanced, interior-safe products selected for leather, alcantara, and factory finishes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICE AREA ================= -->
+<section id="area">
+  <div class="wrap">
+    <div class="area-layout">
+      <div class="area-copy">
+        <span class="eyebrow">Where We Work</span>
+        <h2 style="margin:14px 0 20px; font-size:clamp(1.9rem,3.6vw,2.4rem);">Orange County &amp; the Inland Empire</h2>
+        <p>
+          SoCal Auto Detailing is fully mobile — we bring the equipment, water,
+          and power to your location anywhere across our two core regions below.
+          Outside these areas? Call and ask; we do take select outside bookings.
+        </p>
+
+        <div class="region-group-label">Orange County</div>
+        <!-- [EDIT: SERVICE AREA] add/remove cities freely -->
+        <ul class="region-list">
+          <li>Irvine</li>
+          <li>Newport Beach</li>
+          <li>Anaheim</li>
+          <li>Huntington Beach</li>
+          <li>Mission Viejo</li>
+          <li>Costa Mesa</li>
+        </ul>
+
+        <div class="region-group-label">Inland Empire</div>
+        <ul class="region-list">
+          <li>Riverside</li>
+          <li>Corona</li>
+          <li>San Bernardino</li>
+          <li>Ontario</li>
+          <li>Temecula</li>
+          <li>Rancho Cucamonga</li>
+        </ul>
+      </div>
+
+      <!-- [EDIT: PHOTOS] Replace this whole placeholder with a real photo of your work -->
+      <div class="photo-frame">
+        <div class="placeholder-text">
+          Photo placeholder<br>Swap for a before/after or finished-interior shot<br>(recommended: portrait, 4:5)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="cta-band">
+  <div class="wrap" style="max-width:640px;">
+    <h2>Ready for a showroom interior?</h2>
+    <!-- [EDIT: PHONE NUMBER] -->
+    <a class="phone-big" href="tel:19515619321">(951) 561-9321</a>
+    <p class="note">Call or text to check availability in your area.</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">SoCal <em>Auto Detailing</em></div>
+        <p style="font-weight:300;">Premium mobile interior detailing across Southern California.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <!-- [EDIT: PHONE NUMBER] -->
+        <a href="tel:19515619321">(951) 561-9321</a>
+        <!-- [EDIT: EMAIL] add a real email if you have one, or delete this line -->
+        <a href="mailto:info@socalautodetailing.com">info@socalautodetailing.com</a>
+        <!-- [EDIT: BUSINESS HOURS] -->
+        <p>Mon–Sat, 8am–6pm</p>
+      </div>
+      <div class="footer-col">
+        <h4>Follow</h4>
+        <!-- [EDIT: SOCIAL LINKS] replace # with your real profile URLs -->
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">Yelp</a>
+        <a href="#" target="_blank" rel="noopener">Google Reviews</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> SoCal Auto Detailing. All rights reserved.</span>
+      <span>Orange County &amp; Inland Empire, CA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
