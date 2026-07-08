@@ -1,143 +1,640 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us — SoCal Luxury Detailing</title>
-<meta name="description" content="Learn more about SoCal Luxury Detailing and our interior detailing standards.">
+<title>Our Work — SoCal Luxury Detailing</title>
+<meta name="description" content="See the SoCal Luxury Detailing standard — before &amp; after interior transformations across Orange County and the Inland Empire. Call (951) 561-9321 to book.">
+
+<!--
+  ============================================================
+  SOCAL AUTO DETAILING — OUR WORK PAGE
+  ============================================================
+  Same style system as index.html (shares CSS variables, header,
+  footer, and component classes). To edit anything, find the
+  matching comment below.
+
+  QUICK EDIT INDEX
+  -----------------
+  [EDIT: PHONE NUMBER]      — appears 3 times, search for "9515619321"
+  [EDIT: GALLERY PHOTOS]    — each .gallery-item photo placeholder
+  [EDIT: GALLERY CAPTIONS]  — label under each photo
+  [EDIT: SOCIAL LINKS]      — footer, Instagram/Yelp/Google placeholders
+  [EDIT: BUSINESS HOURS]    — footer
+  [EDIT: COLORS]            — CSS variables at the top of <style>, change once, applies everywhere
+  ============================================================
+-->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* copy your entire existing CSS from index.html here */
-/* from :root { ... } down through all styles, including @media queries */
+  /* ============================================================
+     [EDIT: COLORS] — change the palette here, it applies site-wide
+     ============================================================ */
+  :root{
+    --black:        #0a0b0d;   /* primary background */
+    --charcoal:     #15171b;   /* secondary/alt section background */
+    --charcoal-2:   #1c1f24;   /* card background */
+    --gold:         #c6a664;   /* primary accent — "champagne gold" */
+    --gold-dim:     #8f8058;   /* muted gold for hairlines/borders */
+    --ivory:        #f3efe6;   /* primary text on dark */
+    --graphite:     #9a9ea5;   /* secondary/muted text */
+    --hairline:     rgba(198,166,100,0.22);
 
-:root{
-  --black: #0a0b0d;
-  --charcoal: #15171b;
-  --charcoal-2: #1c1f24;
-  --gold: #c6a664;
-  --gold-dim: #8f8058;
-  --ivory: #f3efe6;
-  --graphite: #9a9ea5;
-  --hairline: rgba(198,166,100,0.22);
-  --display: "Cormorant", serif;
-  --body: "Manrope", sans-serif;
-}
-*{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
-body{
-  margin:0;
-  background: var(--black);
-  color: var(--ivory);
-  font-family: var(--body);
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-}
-img{ max-width:100%; display:block; }
-a{ color: inherit; }
+    --display: "Cormorant", serif;
+    --body: "Manrope", sans-serif;
+  }
 
-/* ...paste ALL other styles from index.html here, including header, hero, section, footer, etc... */
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--black);
+    color: var(--ivory);
+    font-family: var(--body);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; }
 
-/* include the .nav-links styles you added earlier too */
-.nav-links{
-  display:flex;
-  gap:24px;
-  align-items:center;
-  font-size:0.82rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  font-weight:500;
-  color:var(--graphite);
-}
-.nav-links a{
-  text-decoration:none;
-  color:inherit;
-  position:relative;
-  padding-bottom:4px;
-}
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:0;
-  height:1px;
-  background:var(--gold);
-  transition:width 0.22s ease;
-}
-.nav-links a:hover{
-  color:var(--ivory);
-}
-.nav-links a:hover::after{
-  width:100%;
-}
-@media (max-width: 860px){
+  .eyebrow{
+    font-family: var(--body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  h1,h2,h3{
+    font-family: var(--display);
+    font-weight: 500;
+    line-height: 1.08;
+    margin: 0;
+    color: var(--ivory);
+  }
+
+  .wrap{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  /* ---------------- HEADER ---------------- */
+  header{
+    position: sticky;
+    top:0;
+    z-index: 50;
+    background: rgba(10,11,13,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hairline);
+  }
   .nav{
-    flex-wrap:wrap;
-    gap:12px;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1120px;
+    margin: 0 auto;
   }
-  .nav-links{
-    order:3;
-    width:100%;
-    justify-content:center;
-    flex-wrap:wrap;
-    row-gap:8px;
+  .logo{
+    font-family: var(--display);
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--ivory);
+    text-decoration: none;
+    display:flex;
+    align-items: baseline;
+    gap: 8px;
   }
-}
+  .logo em{
+    font-style: normal;
+    color: var(--gold);
+  }
+  .call-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: background 0.25s ease, color 0.25s ease;
+    white-space: nowrap;
+  }
+  .call-btn:hover{ background: var(--gold); color: var(--black); }
 
-/* you can keep hero styles if you want a hero on inner pages,
-   or rely more on section layout + wrap */
+  /* top nav links */
+  .nav-links{
+    display:flex;
+    gap:24px;
+    align-items:center;
+    font-size:0.82rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-weight:500;
+    color:var(--graphite);
+  }
+  .nav-links a{
+    text-decoration:none;
+    color:inherit;
+    position:relative;
+    padding-bottom:4px;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:1px;
+    background:var(--gold);
+    transition:width 0.22s ease;
+  }
+  .nav-links a:hover{ color:var(--ivory); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-links a.active{ color: var(--gold); }
+  .nav-links a.active::after{ width:100%; }
+
+  @media (max-width: 860px){
+    .nav{ flex-wrap:wrap; gap:12px; }
+    .nav-links{ order:3; width:100%; justify-content:center; flex-wrap:wrap; row-gap:8px; }
+  }
+
+  /* ---------------- PAGE HERO (smaller than homepage hero) ---------------- */
+  .page-hero{
+    position: relative;
+    padding: 100px 32px 80px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(198,166,100,0.10), transparent 60%),
+      var(--black);
+    text-align:center;
+  }
+  .page-hero-inner{ max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
+  .page-hero .eyebrow{ display:block; margin-bottom: 22px; }
+  .page-hero h1{
+    font-size: clamp(2.4rem, 5.4vw, 3.8rem);
+    letter-spacing: 0.005em;
+  }
+  .page-hero h1 .sheen{
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(100deg, var(--ivory) 30%, var(--gold) 45%, var(--ivory) 60%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: sheen-sweep 5.5s ease-in-out 0.4s 1;
+  }
+  @keyframes sheen-sweep{
+    0%{ background-position: 100% 0; }
+    45%{ background-position: 0% 0; }
+    100%{ background-position: 0% 0; }
+  }
+  .page-hero p.lede{
+    margin: 24px auto 0;
+    max-width: 540px;
+    color: var(--graphite);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .btn-primary{
+    background: var(--gold);
+    color: var(--black);
+    text-decoration:none;
+    padding: 16px 34px;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 2px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(198,166,100,0.25); }
+  .btn-secondary{
+    border: 1px solid var(--hairline);
+    color: var(--ivory);
+    text-decoration:none;
+    padding: 16px 34px;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: border-color 0.25s ease;
+    display:inline-block;
+  }
+  .btn-secondary:hover{ border-color: var(--gold); }
+
+  .hero-cta{
+    margin-top: 36px;
+    display:flex;
+    gap:16px;
+    justify-content:center;
+    flex-wrap: wrap;
+  }
+
+  /* ---------------- SECTION GENERIC ---------------- */
+  section{ padding: 100px 0; }
+  .section-alt{ background: var(--charcoal); }
+  .section-head{ text-align:center; max-width: 620px; margin: 0 auto 56px; }
+  .section-head .eyebrow{ display:block; margin-bottom: 16px; }
+  .section-head h2{ font-size: clamp(2rem, 4vw, 2.7rem); }
+  .section-head p{ color: var(--graphite); margin-top: 18px; font-weight:300; line-height:1.7; }
+  .divider{
+    width: 64px; height: 1px; background: var(--gold-dim);
+    margin: 22px auto 0;
+  }
+
+  /* ---------------- GALLERY ---------------- */
+  /* [EDIT: GALLERY PHOTOS] — each .gallery-item is one placeholder.
+     Replace the .photo-frame div inside with:
+     <img src="your-photo.jpg" alt="Description of the work shown" style="width:100%;height:100%;object-fit:cover;">
+  */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .gallery-item{ display:flex; flex-direction:column; gap:14px; }
+  .gallery-item .photo-frame{
+    aspect-ratio: 4/5;
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: linear-gradient(160deg, var(--charcoal-2), var(--black));
+    position:relative;
+    overflow:hidden;
+    transition: border-color 0.25s ease;
+  }
+  .gallery-item:hover .photo-frame{ border-color: var(--gold-dim); }
+  .gallery-item .photo-frame .placeholder-text{
+    color: var(--gold-dim);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align:center;
+    padding: 18px;
+    border: 1px dashed var(--hairline);
+    margin: 18px;
+    line-height:1.6;
+  }
+  /* [EDIT: GALLERY CAPTIONS] */
+  .gallery-caption{
+    text-align:center;
+  }
+  .gallery-caption .tag{
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    display:block;
+    margin-bottom: 4px;
+  }
+  .gallery-caption .desc{
+    font-size: 0.88rem;
+    color: var(--graphite);
+    font-weight: 300;
+  }
+
+  /* ---------------- BEFORE / AFTER FEATURE STRIP ---------------- */
+  .ba-strip{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    overflow:hidden;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .ba-half{
+    aspect-ratio: 5/4;
+    background: linear-gradient(160deg, var(--charcoal-2), var(--black));
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .ba-half .ba-label{
+    position:absolute;
+    top:16px; left:16px;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    background: rgba(10,11,13,0.7);
+    padding: 6px 12px;
+    border: 1px solid var(--hairline);
+  }
+  .ba-half .placeholder-text{
+    color: var(--gold-dim);
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align:center;
+    padding: 18px;
+    border: 1px dashed var(--hairline);
+    margin: 18px;
+    line-height:1.6;
+  }
+
+  /* ---------------- STATS ---------------- */
+  .stats{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align:center;
+  }
+  .stat .num{
+    font-family: var(--display);
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    color: var(--gold);
+  }
+  .stat .label{
+    margin-top: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    font-weight: 600;
+  }
+
+  /* ---------------- FINAL CTA ---------------- */
+  .cta-band{
+    text-align:center;
+    background: linear-gradient(180deg, var(--charcoal), var(--black));
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cta-band h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 20px; }
+  .cta-band .phone-big{
+    font-family: var(--display);
+    color: var(--gold);
+    font-size: clamp(2rem, 5vw, 3rem);
+    text-decoration:none;
+    letter-spacing: 0.02em;
+  }
+  .cta-band p.note{ color: var(--graphite); margin-top: 16px; font-weight:300; }
+
+  /* ---------------- FOOTER ---------------- */
+  footer{ padding: 64px 0 40px; }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .footer-col h4{
+    font-family: var(--body);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin: 0 0 18px;
+    font-weight: 700;
+  }
+  .footer-col p, .footer-col a{
+    display:block;
+    color: var(--graphite);
+    text-decoration:none;
+    font-size: 0.92rem;
+    line-height: 2;
+    font-weight:300;
+  }
+  .footer-col a:hover{ color: var(--gold); }
+  .footer-logo{
+    font-family: var(--display);
+    font-size: 1.6rem;
+    color: var(--ivory);
+    margin-bottom: 12px;
+  }
+  .footer-logo em{ font-style:normal; color: var(--gold); }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top: 28px;
+    color: var(--graphite);
+    font-size: 0.8rem;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ---------------- RESPONSIVE ---------------- */
+  @media (max-width: 860px){
+    .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
+    .ba-strip{ grid-template-columns: 1fr; }
+    .stats{ grid-template-columns: 1fr; gap: 32px; }
+    .footer-grid{ grid-template-columns: 1fr; gap: 32px; }
+    .nav{ padding: 16px 20px; }
+    .call-btn span.full{ display:none; }
+  }
+  @media (max-width: 480px){
+    .page-hero{ padding: 90px 20px 64px; }
+    section{ padding: 72px 0; }
+    .gallery-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* focus visibility for accessibility */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
 </style>
 </head>
 <body>
 
-<!-- HEADER (same as index, but logo link goes to index.html) -->
+<!-- ================= HEADER ================= -->
 <header>
   <div class="nav">
     <a href="index.html" class="logo">SoCal <em>Luxury Detailing</em></a>
 
     <nav class="nav-links">
       <a href="about.html">About Us</a>
-      <a href="our-work.html">Our Work</a>
+      <a href="our-work.html" class="active">Our Work</a>
       <a href="book.html">Book An Appointment</a>
       <a href="contact.html">Contact</a>
     </nav>
 
+    <!-- [EDIT: PHONE NUMBER] -->
     <a class="call-btn" href="tel:19515619321">
       <span class="full">Call</span> (951) 561-9321
     </a>
   </div>
 </header>
 
-<!-- SIMPLE INNER PAGE HERO / TITLE -->
-<section class="hero" id="top">
-  <div class="hero-inner">
-    <span class="eyebrow">SoCal Luxury Detailing</span>
-    <h1>About Us</h1>
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero" id="top">
+  <div class="page-hero-inner">
+    <span class="eyebrow">Our Work</span>
+    <h1>The proof is in <span class="sheen">every panel.</span></h1>
     <p class="lede">
-      Placeholder copy. Tell your story here — experience, standards, and why you focus on interiors.
+      A look at the standard we hold every vehicle to — from daily drivers
+      to weekend cars. Every job below was finished by hand, on-site,
+      across Orange County and the Inland Empire.
     </p>
-  </div>
-</section>
-
-<!-- MAIN CONTENT BLOCK -->
-<section class="section-alt">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Details</span>
-      <h2>Our approach to interior perfection</h2>
-      <p>
-        This is placeholder text. Replace it with real content about your process, materials, and how you treat each vehicle.
-      </p>
-      <div class="divider"></div>
+    <div class="hero-cta">
+      <a class="btn-primary" href="tel:19515619321">Book by Phone</a>
+      <a class="btn-secondary" href="#gallery">View the Gallery</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER (same as index) -->
+<!-- ================= GALLERY ================= -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Recent Details</span>
+      <h2>A closer look</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- [EDIT: GALLERY PHOTOS] Replace each .photo-frame div with a real <img>.
+         Duplicate a .gallery-item block to add more photos. -->
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <div class="photo-frame">
+          <div class="placeholder-text">Photo placeholder<br>Full detail — front seats<br>(portrait, 4:5)</div>
+        </div>
+        <div class="gallery-caption">
+          <span class="tag">Full Interior Detail</span>
+          <span class="desc">Steam-cleaned leather, front cabin</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="photo-frame">
+          <div class="placeholder-text">Photo placeholder<br>Full detail — carpets &amp; trunk<br>(portrait, 4:5)</div>
+        </div>
+        <div class="gallery-caption">
+          <span class="tag">Full Interior Detail</span>
+          <span class="desc">Deep-extracted carpet and trunk liner</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="photo-frame">
+          <div class="placeholder-text">Photo placeholder<br>Full detail — dash &amp; console<br>(portrait, 4:5)</div>
+        </div>
+        <div class="gallery-caption">
+          <span class="tag">Full Interior Detail</span>
+          <span class="desc">Dash and console with UV-safe protectant</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="photo-frame">
+          <div class="placeholder-text">Photo placeholder<br>Full detail — door panels<br>(portrait, 4:5)</div>
+        </div>
+        <div class="gallery-caption">
+          <span class="tag">Full Interior Detail</span>
+          <span class="desc">Door panel and trim detailing</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="photo-frame">
+          <div class="placeholder-text">Photo placeholder<br>Full detail — glass &amp; mirrors<br>(portrait, 4:5)</div>
+        </div>
+        <div class="gallery-caption">
+          <span class="tag">Full Interior Detail</span>
+          <span class="desc">Streak-free interior glass finish</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <div class="photo-frame">
+          <div class="placeholder-text">Photo placeholder<br>Finished cabin, overall shot<br>(portrait, 4:5)</div>
+        </div>
+        <div class="gallery-caption">
+          <span class="tag">Full Interior Detail</span>
+          <span class="desc">Finished cabin, ready for pickup</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= BEFORE / AFTER ================= -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Transformation</span>
+      <h2>Before &amp; after</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- [EDIT: GALLERY PHOTOS] Replace each .photo-frame with a real before/after photo -->
+    <div class="ba-strip">
+      <div class="ba-half">
+        <span class="ba-label">Before</span>
+        <div class="placeholder-text">Photo placeholder<br>Before shot<br>(landscape, 5:4)</div>
+      </div>
+      <div class="ba-half">
+        <span class="ba-label">After</span>
+        <div class="placeholder-text">Photo placeholder<br>After shot<br>(landscape, 5:4)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat">
+        <div class="num">100%</div>
+        <div class="label">Hand-Finished Work</div>
+      </div>
+      <div class="stat">
+        <div class="num">2</div>
+        <div class="label">Regions Served — OC &amp; IE</div>
+      </div>
+      <div class="stat">
+        <div class="num">5.0</div>
+        <div class="label">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="cta-band">
+  <div class="wrap" style="max-width:640px;">
+    <h2>Want your interior looking like this?</h2>
+    <!-- [EDIT: PHONE NUMBER] -->
+    <a class="phone-big" href="tel:19515619321">(951) 561-9321</a>
+    <p class="note">Call or text to check availability in your area.</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
 <footer>
   <div class="wrap">
     <div class="footer-grid">
@@ -147,19 +644,23 @@ a{ color: inherit; }
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
+        <!-- [EDIT: PHONE NUMBER] -->
         <a href="tel:19515619321">(951) 561-9321</a>
+        <!-- [EDIT: EMAIL] add a real email if you have one, or delete this line -->
         <a href="mailto:ethanbaskys24@gmail.com">ethanbaskys24@gmail.com</a>
+        <!-- [EDIT: BUSINESS HOURS] -->
         <p>24 Hours</p>
       </div>
       <div class="footer-col">
         <h4>Follow</h4>
+        <!-- [EDIT: SOCIAL LINKS] replace # with your real profile URLs -->
         <a href="#" target="_blank" rel="noopener">Instagram</a>
         <a href="#" target="_blank" rel="noopener">Yelp</a>
         <a href="#" target="_blank" rel="noopener">Google Reviews</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> SoCal Luxury Detailing. All rights reserved.</span>
+      <span>&copy; <span id="year"></span> SoCal Luxury Detailing. All rights reserved.</span>
       <span>Orange County &amp; Inland Empire, CA</span>
     </div>
   </div>
@@ -168,5 +669,6 @@ a{ color: inherit; }
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
+
 </body>
 </html>
