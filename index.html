@@ -457,6 +457,58 @@
     outline: 2px solid var(--gold);
     outline-offset: 3px;
   }
+  /* top nav links */
+.nav-links{
+  display:flex;
+  gap:24px;
+  align-items:center;
+  font-size:0.82rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-weight:500;
+  color:var(--graphite);
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:inherit;
+  position:relative;
+  padding-bottom:4px;
+}
+
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:1px;
+  background:var(--gold);
+  transition:width 0.22s ease;
+}
+
+.nav-links a:hover{
+  color:var(--ivory);
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* stack nav on mobile */
+@media (max-width: 860px){
+  .nav{
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .nav-links{
+    order:3;
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    row-gap:8px;
+  }
+}
 </style>
 </head>
 <body>
@@ -465,6 +517,16 @@
 <header>
   <div class="nav">
     <a href="#top" class="logo">SoCal <em>Luxury Detailing</em></a>
+
+    <!-- NEW: top navigation links -->
+    <nav class="nav-links">
+      <!-- Change hrefs later to your real pages -->
+      <a href="about.html">About Us</a>
+      <a href="our-work.html">Our Work</a>
+      <a href="book.html">Book An Appointment</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
     <!-- [EDIT: PHONE NUMBER] -->
     <a class="call-btn" href="tel:19515619321">
       <span class="full">Call</span> (951) 561-9321
