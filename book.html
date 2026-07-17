@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book An Appointment — SoCal Luxury Detailing</title>
+<meta name="description" content="Book a mobile interior or exterior detail with SoCal Luxury Detailing. Call or text (951) 561-9321 — serving Orange County and the Inland Empire.">
+
+<!--
+============================================================
+SOCAL AUTO DETAILING — BOOK AN APPOINTMENT PAGE
+============================================================
+Same style system as index.html (shares CSS variables, header,
+footer, and component classes). To edit anything, find the
+matching comment below.
+
+QUICK EDIT INDEX
+-----------------
+[EDIT: PHONE NUMBER] — appears several times, search for "9515619321"
+[EDIT: PRICING]      — inside each service summary card
+[EDIT: FORM EMAIL]   — the address the request form sends to
+[EDIT: BUSINESS HOURS] — footer
+[EDIT: COLORS]        — CSS variables at the top of <style>, change once, applies everywhere
+
+NOTE ON THE FORM: this is a static site with no server, so the
+"Send Request" button below opens the visitor's own email app
+with the details pre-filled (a mailto form). It is not a live
+booking system — if you add real online booking later, swap
+this section out.
+============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black: #0a0b0d;
+  --charcoal: #15171b;
+  --charcoal-2: #1c1f24;
+  --gold: #c6a664;
+  --gold-dim: #8f8058;
+  --ivory: #f3efe6;
+  --graphite: #9a9ea5;
+  --hairline: rgba(198,166,100,0.22);
+  --display: "Cormorant", serif;
+  --body: "Manrope", sans-serif;
+}
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0; background: var(--black); color: var(--ivory);
+  font-family: var(--body); font-weight: 400; -webkit-font-smoothing: antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color: inherit; }
+
+.eyebrow{
+  font-family: var(--body); font-size: 0.72rem; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--gold); font-weight: 600;
+}
+h1,h2,h3{ font-family: var(--display); font-weight: 500; line-height: 1.08; margin: 0; color: var(--ivory); }
+.wrap{ max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------------- HEADER ---------------- */
+header{
+  position: sticky; top:0; z-index: 50;
+  background: rgba(10,11,13,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hairline);
+}
+.nav{ display:flex; align-items:center; justify-content: space-between; padding: 18px 32px; max-width: 1120px; margin: 0 auto; }
+.logo{
+  font-family: var(--display); font-size: 1.5rem; letter-spacing: 0.04em; color: var(--ivory);
+  text-decoration: none; display:flex; align-items: baseline; gap: 8px;
+}
+.logo em{ font-style: normal; color: var(--gold); }
+.call-btn{
+  display:inline-flex; align-items:center; gap:10px; border: 1px solid var(--gold-dim); color: var(--gold);
+  text-decoration: none; padding: 10px 20px; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 600; border-radius: 2px; transition: background 0.25s ease, color 0.25s ease; white-space: nowrap;
+}
+.call-btn:hover{ background: var(--gold); color: var(--black); }
+.nav-links{
+  display:flex; gap:24px; align-items:center; font-size:0.82rem; letter-spacing:0.12em;
+  text-transform:uppercase; font-weight:500; color:var(--graphite);
+}
+.nav-links a{ text-decoration:none; color:inherit; position:relative; padding-bottom:4px; }
+.nav-links a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--gold); transition:width 0.22s ease; }
+.nav-links a:hover{ color:var(--ivory); }
+.nav-links a:hover::after{ width:100%; }
+.nav-links a.active{ color: var(--gold); }
+.nav-links a.active::after{ width:100%; }
+@media (max-width: 860px){
+  .nav{ flex-wrap:wrap; gap:12px; }
+  .nav-links{ order:3; width:100%; justify-content:center; flex-wrap:wrap; row-gap:8px; }
+}
+
+/* ---------------- PAGE HERO ---------------- */
+.page-hero{
+  position: relative; padding: 100px 32px 80px; overflow: hidden;
+  background: radial-gradient(ellipse at 50% -10%, rgba(198,166,100,0.10), transparent 60%), var(--black);
+  text-align:center;
+}
+.page-hero-inner{ max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
+.page-hero .eyebrow{ display:block; margin-bottom: 22px; }
+.page-hero h1{ font-size: clamp(2.4rem, 5.4vw, 3.8rem); letter-spacing: 0.005em; }
+.page-hero h1 .sheen{
+  position: relative; display: inline-block;
+  background: linear-gradient(100deg, var(--ivory) 30%, var(--gold) 45%, var(--ivory) 60%);
+  background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: sheen-sweep 5.5s ease-in-out 0.4s 1;
+}
+@keyframes sheen-sweep{
+  0%{ background-position: 100% 0; } 45%{ background-position: 0% 0; } 100%{ background-position: 0% 0; }
+}
+.page-hero p.lede{ margin: 24px auto 0; max-width: 560px; color: var(--graphite); font-size: 1.05rem; line-height: 1.7; font-weight: 300; }
+.btn-primary{
+  background: var(--gold); color: var(--black); text-decoration:none; padding: 16px 34px;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+  border-radius: 2px; transition: transform 0.25s ease, box-shadow 0.25s ease; display:inline-block; border:none; cursor:pointer;
+}
+.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(198,166,100,0.25); }
+.btn-secondary{
+  border: 1px solid var(--hairline); color: var(--ivory); text-decoration:none; padding: 16px 34px;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+  border-radius: 2px; transition: border-color 0.25s ease; display:inline-block;
+}
+.btn-secondary:hover{ border-color: var(--gold); }
+.hero-cta{ margin-top: 36px; display:flex; gap:16px; justify-content:center; flex-wrap: wrap; }
+
+/* ---------------- SECTION GENERIC ---------------- */
+section{ padding: 100px 0; }
+.section-alt{ background: var(--charcoal); }
+.section-head{ text-align:center; max-width: 640px; margin: 0 auto 56px; }
+.section-head .eyebrow{ display:block; margin-bottom: 16px; }
+.section-head h2{ font-size: clamp(2rem, 4vw, 2.7rem); }
+.section-head p{ color: var(--graphite); margin-top: 18px; font-weight:300; line-height:1.7; }
+.divider{ width: 64px; height: 1px; background: var(--gold-dim); margin: 22px auto 0; }
+
+/* ---------------- SERVICE SUMMARY CARDS ---------------- */
+.service-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 980px; margin: 0 auto; align-items: stretch; }
+.service-card{
+  background: var(--charcoal-2); border: 1px solid var(--hairline); width:100%; padding: 48px 40px;
+  position: relative; border-radius: 4px; display:flex; flex-direction:column;
+}
+.service-card::before{ content:""; position:absolute; top:0; left:0; right:0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.service-card .service-name{ font-family: var(--display); font-size: 1.7rem; color: var(--ivory); }
+/* [EDIT: PRICING] */
+.service-card .price{ font-family: var(--display); font-size: 2.2rem; color: var(--gold); margin: 6px 0 22px; }
+.service-card .price sup{ font-size: 1rem; top: -1em; }
+.service-card .price.call-price{ font-size: 1.3rem; }
+.service-card ul{ list-style: none; padding:0; margin: 0 0 30px; display:grid; gap: 12px; flex-grow:1; }
+.service-card li{ display:flex; gap: 12px; font-size: 0.92rem; color: var(--graphite); font-weight: 300; line-height:1.5; }
+.service-card li svg{ flex:none; margin-top:3px; }
+.service-card .btn-primary{ width:100%; text-align:center; }
+@media (max-width: 860px){ .service-grid{ grid-template-columns: 1fr; max-width: 480px; } }
+
+/* ---------------- STEPS ---------------- */
+.steps{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.step{ text-align:center; padding: 0 12px; position:relative; }
+.step .step-num{
+  font-family: var(--display); font-size: 1rem; color: var(--gold); letter-spacing: 0.1em;
+  display:block; margin-bottom: 14px;
+}
+.step .icon{ width: 42px; height:42px; margin: 0 auto 18px; color: var(--gold); }
+.step h3{ font-size: 1.25rem; margin-bottom: 10px; }
+.step p{ color: var(--graphite); font-size: 0.92rem; line-height:1.7; font-weight:300; margin:0; }
+
+/* ---------------- FORM ---------------- */
+.form-shell{ max-width: 640px; margin: 0 auto; background: var(--charcoal-2); border: 1px solid var(--hairline); border-radius: 4px; padding: 48px; }
+.form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.field{ margin-bottom: 20px; }
+.field label{ display:block; font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-dim); font-weight: 600; margin-bottom: 8px; }
+.field input, .field select, .field textarea{
+  width:100%; background: var(--black); border: 1px solid var(--hairline); color: var(--ivory);
+  padding: 12px 14px; font-family: var(--body); font-size: 0.92rem; border-radius: 2px;
+}
+.field input:focus, .field select:focus, .field textarea:focus{ outline: none; border-color: var(--gold); }
+.field textarea{ resize: vertical; min-height: 100px; }
+.form-note{ color: var(--graphite); font-size: 0.82rem; font-weight:300; margin-top: 18px; text-align:center; line-height:1.6; }
+@media (max-width: 640px){
+  .form-shell{ padding: 32px 24px; }
+  .form-row{ grid-template-columns: 1fr; }
+}
+
+/* ---------------- FINAL CTA ---------------- */
+.cta-band{
+  text-align:center; background: linear-gradient(180deg, var(--charcoal), var(--black));
+  border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+}
+.cta-band h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 20px; }
+.cta-band .phone-big{ font-family: var(--display); color: var(--gold); font-size: clamp(2rem, 5vw, 3rem); text-decoration:none; letter-spacing: 0.02em; }
+.cta-band p.note{ color: var(--graphite); margin-top: 16px; font-weight:300; }
+
+/* ---------------- FOOTER ---------------- */
+footer{ padding: 64px 0 40px; }
+.footer-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--hairline); }
+.footer-col h4{
+  font-family: var(--body); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-dim); margin: 0 0 18px; font-weight: 700;
+}
+.footer-col p, .footer-col a{ display:block; color: var(--graphite); text-decoration:none; font-size: 0.92rem; line-height: 2; font-weight:300; }
+.footer-col a:hover{ color: var(--gold); }
+.footer-logo{ font-family: var(--display); font-size: 1.6rem; color: var(--ivory); margin-bottom: 12px; }
+.footer-logo em{ font-style:normal; color: var(--gold); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top: 28px; color: var(--graphite); font-size: 0.8rem; flex-wrap: wrap; gap: 12px; }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 860px){
+  .steps{ grid-template-columns: 1fr; gap: 44px; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 32px; }
+  .nav{ padding: 16px 20px; }
+  .call-btn span.full{ display:none; }
+}
+@media (max-width: 480px){
+  .page-hero{ padding: 90px 20px 64px; }
+  section{ padding: 72px 0; }
+  .service-card{ padding: 36px 26px; }
+}
+
+a:focus-visible, button:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">SoCal <em>Luxury Detailing</em></a>
+    <nav class="nav-links">
+      <a href="about.html">About Us</a>
+      <a href="our-work.html">Our Work</a>
+      <a href="book.html" class="active">Book An Appointment</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <!-- [EDIT: PHONE NUMBER] -->
+    <a class="call-btn" href="tel:19515619321">
+      <span class="full">Call</span> (951) 561-9321
+    </a>
+  </div>
+</header>
+
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero" id="top">
+  <div class="page-hero-inner">
+    <span class="eyebrow">Book An Appointment</span>
+    <h1>Let's get your <span class="sheen">vehicle detailed.</span></h1>
+    <p class="lede">
+      Pick a service below, then call or text to lock in your date, time, and
+      location. Most requests are confirmed the same day.
+    </p>
+    <div class="hero-cta">
+      <!-- [EDIT: PHONE NUMBER] -->
+      <a class="btn-primary" href="tel:19515619321">Call to Book</a>
+      <a class="btn-secondary" href="sms:19515619321">Text to Book</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHOOSE A SERVICE ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Choose Your Service</span>
+      <h2>What are we detailing?</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-name">Interior Detail</div>
+        <!-- [EDIT: PRICING] -->
+        <div class="price"><sup>$</sup>140</div>
+        <ul>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Complete vacuum, seats to trunk
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Steam-cleaned upholstery or leather
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Odor neutralization, not masking
+          </li>
+        </ul>
+        <a class="btn-primary" href="tel:19515619321">Call to Book This Service</a>
+      </div>
+      <div class="service-card">
+        <div class="service-name">Exterior Detail</div>
+        <!-- [EDIT: PRICING] — replace with a set price or starting price once you decide -->
+        <div class="price call-price">Call for Pricing</div>
+        <ul>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Hand wash and decontamination
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Wheel, tire, and clay bar treatment
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+            Hand-applied wax or sealant
+          </li>
+        </ul>
+        <a class="btn-primary" href="tel:19515619321">Call to Book This Service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW BOOKING WORKS ================= -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The Process</span>
+      <h2>How booking works</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M14 10c0-2 2-4 4-4h2c1 0 2 1 2 2 0 2 1 4 2 5 1 1 1 2 0 3l-2 2c2 5 6 9 11 11l2-2c1-1 2-1 3 0 1 1 3 2 5 2 1 0 2 1 2 2v2c0 2-2 4-4 4-14 0-27-13-27-27z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        <h3>Call or Text</h3>
+        <p>Tell us which service you'd like and roughly where and when — a driveway, office lot, or curb all work.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="8" y="10" width="32" height="30" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M8 18h32M16 6v8M32 6v8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>We Confirm Details</h3>
+        <p>We lock in a date, time, and location, and let you know if anything needs to be arranged in advance.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="6" y="20" width="36" height="14" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="36" r="3" stroke="currentColor" stroke-width="1.2"/><circle cx="34" cy="36" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M6 26l4-9h28l4 9" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+        <h3>We Detail On-Site</h3>
+        <p>We show up with everything needed — water, power, and equipment — and get to work by hand.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REQUEST FORM ================= -->
+<section id="request">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Prefer to Message?</span>
+      <h2>Request a booking</h2>
+      <div class="divider"></div>
+    </div>
+    <!-- [EDIT: FORM EMAIL] change the address in the action below to your own -->
+    <form class="form-shell" action="mailto:ethanbaskys24@gmail.com" method="post" enctype="text/plain">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="Name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="Phone" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="service">Service</label>
+          <select id="service" name="Service">
+            <option>Interior Detail</option>
+            <option>Exterior Detail</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="date">Preferred Date</label>
+          <input type="text" id="date" name="Preferred Date" placeholder="e.g. this Saturday">
+        </div>
+      </div>
+      <div class="field">
+        <label for="location">City / Location</label>
+        <input type="text" id="location" name="Location" placeholder="e.g. Irvine, CA">
+      </div>
+      <div class="field">
+        <label for="message">Anything else?</label>
+        <textarea id="message" name="Message" placeholder="Vehicle type, gate code, best time to reach you, etc."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;">Send Request</button>
+      <p class="form-note">Submitting opens your email app with these details filled in — we'll reply to confirm. For a faster response, call or text (951) 561-9321.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="cta-band">
+  <div class="wrap" style="max-width:640px;">
+    <h2>Ready when you are.</h2>
+    <!-- [EDIT: PHONE NUMBER] -->
+    <a class="phone-big" href="tel:19515619321">(951) 561-9321</a>
+    <p class="note">Call or text to check availability in your area.</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">SoCal <em>Luxury Detailing</em></div>
+        <p style="font-weight:300;">Premium mobile interior and exterior detailing across Southern California.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <!-- [EDIT: PHONE NUMBER] -->
+        <a href="tel:19515619321">(951) 561-9321</a>
+        <!-- [EDIT: EMAIL] add a real email if you have one, or delete this line -->
+        <a href="mailto:ethanbaskys24@gmail.com">ethanbaskys24@gmail.com</a>
+        <!-- [EDIT: BUSINESS HOURS] -->
+        <p>24 Hours</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> SoCal Luxury Detailing. All rights reserved.</span>
+      <span>Orange County &amp; Inland Empire, CA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

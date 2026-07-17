@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — SoCal Luxury Detailing</title>
+<meta name="description" content="Meet SoCal Luxury Detailing — a mobile interior and exterior detailing service serving Orange County and the Inland Empire. Call (951) 561-9321.">
+
+<!--
+============================================================
+SOCAL AUTO DETAILING — ABOUT PAGE
+============================================================
+Same style system as index.html (shares CSS variables, header,
+footer, and component classes). To edit anything, find the
+matching comment below.
+
+QUICK EDIT INDEX
+-----------------
+[EDIT: PHONE NUMBER] — appears a few times, search for "9515619321"
+[EDIT: STORY]        — the two paragraphs about how/why the business works
+[EDIT: PHOTOS]        — photo placeholder in the story section
+[EDIT: BUSINESS HOURS]— footer
+[EDIT: COLORS]        — CSS variables at the top of <style>, change once, applies everywhere
+============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black: #0a0b0d;
+  --charcoal: #15171b;
+  --charcoal-2: #1c1f24;
+  --gold: #c6a664;
+  --gold-dim: #8f8058;
+  --ivory: #f3efe6;
+  --graphite: #9a9ea5;
+  --hairline: rgba(198,166,100,0.22);
+  --display: "Cormorant", serif;
+  --body: "Manrope", sans-serif;
+}
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin:0; background: var(--black); color: var(--ivory);
+  font-family: var(--body); font-weight: 400; -webkit-font-smoothing: antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color: inherit; }
+
+.eyebrow{
+  font-family: var(--body); font-size: 0.72rem; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--gold); font-weight: 600;
+}
+h1,h2,h3{ font-family: var(--display); font-weight: 500; line-height: 1.08; margin: 0; color: var(--ivory); }
+.wrap{ max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------------- HEADER ---------------- */
+header{
+  position: sticky; top:0; z-index: 50;
+  background: rgba(10,11,13,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--hairline);
+}
+.nav{ display:flex; align-items:center; justify-content: space-between; padding: 18px 32px; max-width: 1120px; margin: 0 auto; }
+.logo{
+  font-family: var(--display); font-size: 1.5rem; letter-spacing: 0.04em; color: var(--ivory);
+  text-decoration: none; display:flex; align-items: baseline; gap: 8px;
+}
+.logo em{ font-style: normal; color: var(--gold); }
+.call-btn{
+  display:inline-flex; align-items:center; gap:10px; border: 1px solid var(--gold-dim); color: var(--gold);
+  text-decoration: none; padding: 10px 20px; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 600; border-radius: 2px; transition: background 0.25s ease, color 0.25s ease; white-space: nowrap;
+}
+.call-btn:hover{ background: var(--gold); color: var(--black); }
+.nav-links{
+  display:flex; gap:24px; align-items:center; font-size:0.82rem; letter-spacing:0.12em;
+  text-transform:uppercase; font-weight:500; color:var(--graphite);
+}
+.nav-links a{ text-decoration:none; color:inherit; position:relative; padding-bottom:4px; }
+.nav-links a::after{ content:""; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--gold); transition:width 0.22s ease; }
+.nav-links a:hover{ color:var(--ivory); }
+.nav-links a:hover::after{ width:100%; }
+.nav-links a.active{ color: var(--gold); }
+.nav-links a.active::after{ width:100%; }
+@media (max-width: 860px){
+  .nav{ flex-wrap:wrap; gap:12px; }
+  .nav-links{ order:3; width:100%; justify-content:center; flex-wrap:wrap; row-gap:8px; }
+}
+
+/* ---------------- PAGE HERO ---------------- */
+.page-hero{
+  position: relative; padding: 100px 32px 80px; overflow: hidden;
+  background: radial-gradient(ellipse at 50% -10%, rgba(198,166,100,0.10), transparent 60%), var(--black);
+  text-align:center;
+}
+.page-hero-inner{ max-width: 720px; margin: 0 auto; position: relative; z-index: 2; }
+.page-hero .eyebrow{ display:block; margin-bottom: 22px; }
+.page-hero h1{ font-size: clamp(2.4rem, 5.4vw, 3.8rem); letter-spacing: 0.005em; }
+.page-hero h1 .sheen{
+  position: relative; display: inline-block;
+  background: linear-gradient(100deg, var(--ivory) 30%, var(--gold) 45%, var(--ivory) 60%);
+  background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: sheen-sweep 5.5s ease-in-out 0.4s 1;
+}
+@keyframes sheen-sweep{
+  0%{ background-position: 100% 0; } 45%{ background-position: 0% 0; } 100%{ background-position: 0% 0; }
+}
+.page-hero p.lede{ margin: 24px auto 0; max-width: 560px; color: var(--graphite); font-size: 1.05rem; line-height: 1.7; font-weight: 300; }
+.btn-primary{
+  background: var(--gold); color: var(--black); text-decoration:none; padding: 16px 34px;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+  border-radius: 2px; transition: transform 0.25s ease, box-shadow 0.25s ease; display:inline-block;
+}
+.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(198,166,100,0.25); }
+.btn-secondary{
+  border: 1px solid var(--hairline); color: var(--ivory); text-decoration:none; padding: 16px 34px;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+  border-radius: 2px; transition: border-color 0.25s ease; display:inline-block;
+}
+.btn-secondary:hover{ border-color: var(--gold); }
+.btn-tertiary{
+  color: var(--gold); text-decoration:none; font-size: 0.82rem; letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 600; border-bottom: 1px solid var(--gold-dim); padding-bottom: 2px;
+}
+.btn-tertiary:hover{ border-color: var(--gold); }
+.hero-cta{ margin-top: 36px; display:flex; gap:16px; justify-content:center; flex-wrap: wrap; }
+
+/* ---------------- SECTION GENERIC ---------------- */
+section{ padding: 100px 0; }
+.section-alt{ background: var(--charcoal); }
+.section-head{ text-align:center; max-width: 640px; margin: 0 auto 56px; }
+.section-head .eyebrow{ display:block; margin-bottom: 16px; }
+.section-head h2{ font-size: clamp(2rem, 4vw, 2.7rem); }
+.section-head p{ color: var(--graphite); margin-top: 18px; font-weight:300; line-height:1.7; }
+.divider{ width: 64px; height: 1px; background: var(--gold-dim); margin: 22px auto 0; }
+
+/* ---------------- STORY LAYOUT ---------------- */
+.story-layout{ display:grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items:center; }
+.story-copy p{ color: var(--graphite); line-height:1.8; font-weight:300; margin: 0 0 20px; }
+.story-copy p:last-child{ margin-bottom: 0; }
+
+/* [EDIT: PHOTOS] shared photo placeholder component */
+.photo-frame{
+  aspect-ratio: 4/5; border: 1px solid var(--hairline); border-radius: 4px;
+  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(160deg, var(--charcoal-2), var(--black));
+  position:relative; overflow:hidden;
+}
+.photo-frame .placeholder-text{
+  color: var(--gold-dim); font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  text-align:center; padding: 20px; border: 1px dashed var(--hairline); margin: 20px;
+}
+
+/* ---------------- OFFER CARDS (What We Offer) ---------------- */
+.offer-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 980px; margin: 0 auto; }
+.offer-card{
+  background: var(--charcoal-2); border: 1px solid var(--hairline); border-radius: 4px;
+  padding: 40px 36px; position: relative;
+}
+.offer-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.offer-card h3{ font-size: 1.5rem; margin-bottom: 12px; }
+.offer-card p{ color: var(--graphite); font-weight:300; line-height:1.7; margin: 0 0 22px; }
+
+/* ---------------- PILLARS ---------------- */
+.pillars{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+.pillar{ text-align:center; padding: 0 12px; }
+.pillar .icon{ width: 46px; height:46px; margin: 0 auto 22px; color: var(--gold); }
+.pillar h3{ font-size: 1.3rem; margin-bottom: 10px; }
+.pillar p{ color: var(--graphite); font-size: 0.92rem; line-height:1.7; font-weight:300; margin:0; }
+
+/* ---------------- FINAL CTA ---------------- */
+.cta-band{
+  text-align:center; background: linear-gradient(180deg, var(--charcoal), var(--black));
+  border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline);
+}
+.cta-band h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 20px; }
+.cta-band .phone-big{ font-family: var(--display); color: var(--gold); font-size: clamp(2rem, 5vw, 3rem); text-decoration:none; letter-spacing: 0.02em; }
+.cta-band p.note{ color: var(--graphite); margin-top: 16px; font-weight:300; }
+
+/* ---------------- FOOTER ---------------- */
+footer{ padding: 64px 0 40px; }
+.footer-grid{ display:grid; grid-template-columns: 1.3fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--hairline); }
+.footer-col h4{
+  font-family: var(--body); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-dim); margin: 0 0 18px; font-weight: 700;
+}
+.footer-col p, .footer-col a{ display:block; color: var(--graphite); text-decoration:none; font-size: 0.92rem; line-height: 2; font-weight:300; }
+.footer-col a:hover{ color: var(--gold); }
+.footer-logo{ font-family: var(--display); font-size: 1.6rem; color: var(--ivory); margin-bottom: 12px; }
+.footer-logo em{ font-style:normal; color: var(--gold); }
+.footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top: 28px; color: var(--graphite); font-size: 0.8rem; flex-wrap: wrap; gap: 12px; }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 860px){
+  .story-layout{ grid-template-columns: 1fr; }
+  .photo-frame{ aspect-ratio: 16/9; order: -1; }
+  .offer-grid{ grid-template-columns: 1fr; max-width: 480px; }
+  .pillars{ grid-template-columns: 1fr; gap: 44px; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 32px; }
+  .nav{ padding: 16px 20px; }
+  .call-btn span.full{ display:none; }
+}
+@media (max-width: 480px){
+  .page-hero{ padding: 90px 20px 64px; }
+  section{ padding: 72px 0; }
+  .offer-card{ padding: 32px 26px; }
+}
+
+a:focus-visible, button:focus-visible{ outline: 2px solid var(--gold); outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">SoCal <em>Luxury Detailing</em></a>
+    <nav class="nav-links">
+      <a href="about.html" class="active">About Us</a>
+      <a href="our-work.html">Our Work</a>
+      <a href="book.html">Book An Appointment</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <!-- [EDIT: PHONE NUMBER] -->
+    <a class="call-btn" href="tel:19515619321">
+      <span class="full">Call</span> (951) 561-9321
+    </a>
+  </div>
+</header>
+
+<!-- ================= PAGE HERO ================= -->
+<section class="page-hero" id="top">
+  <div class="page-hero-inner">
+    <span class="eyebrow">About Us</span>
+    <h1>Careful work,<br><span class="sheen">start to finish.</span></h1>
+    <p class="lede">
+      SoCal Luxury Detailing is a mobile detailing service built around one idea:
+      your vehicle deserves the same hand-finished care as a showroom car —
+      without the shop drop-off or the wait.
+    </p>
+  </div>
+</section>
+
+<!-- ================= STORY ================= -->
+<section id="story">
+  <div class="wrap">
+    <div class="story-layout">
+      <div class="story-copy">
+        <span class="eyebrow">Why Mobile</span>
+        <h2 style="margin:14px 0 20px; font-size:clamp(1.9rem,3.6vw,2.4rem);">We come to you.</h2>
+        <!-- [EDIT: STORY] personalize these paragraphs with your own story -->
+        <p>
+          Dropping a car off at a shop and losing an afternoon in a waiting room isn't
+          how detailing should work. We bring the water, power, and equipment directly
+          to your driveway, office lot, or curb — so the only thing you have to do is
+          hand over the keys.
+        </p>
+        <p>
+          Every job, whether it's a full interior refresh or a complete exterior
+          detail, is worked by hand and checked panel by panel before we call it
+          finished. No shortcuts, no upsells you didn't ask for — just careful,
+          consistent work across Orange County and the Inland Empire.
+        </p>
+      </div>
+      <!-- [EDIT: PHOTOS] Replace this whole placeholder with a real photo -->
+      <div class="photo-frame">
+        <div class="placeholder-text">
+          Photo placeholder<br>Owner, team, or equipment shot<br>(recommended: portrait, 4:5)
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT WE OFFER ================= -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Two services, one standard</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <h3>Interior Detail</h3>
+        <p>Complete vacuum, steam-cleaned upholstery or leather, dash and console detailing, streak-free glass, and true odor neutralization.</p>
+        <a class="btn-tertiary" href="index.html#service">See Pricing &amp; Details</a>
+      </div>
+      <div class="offer-card">
+        <h3>Exterior Detail</h3>
+        <p>Hand wash and decontamination, wheel and tire cleaning, clay bar treatment, and a hand-applied wax or sealant for lasting paint protection.</p>
+        <a class="btn-tertiary" href="index.html#service">See Pricing &amp; Details</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPROACH / PILLARS ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Our Approach</span>
+      <h2>How we work</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.2"/><path d="M24 14v10l7 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <h3>Meticulous, Not Rushed</h3>
+        <p>Every panel, vent, and seam is worked by hand — nothing is rushed to hit a quota.</p>
+      </div>
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="8" y="18" width="32" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="34" r="3" stroke="currentColor" stroke-width="1.2"/><circle cx="32" cy="34" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 24l4-8h12l4 8" stroke="currentColor" stroke-width="1.2"/></svg>
+        <h3>Fully Mobile</h3>
+        <p>We bring everything the job needs directly to your location — home, office, or curbside.</p>
+      </div>
+      <div class="pillar">
+        <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M14 24h20M24 14v20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.2"/></svg>
+        <h3>Direct Communication</h3>
+        <p>Call or text and reach the person doing the work — not a call center or a booking app.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="cta-band">
+  <div class="wrap" style="max-width:640px;">
+    <h2>Ready to book?</h2>
+    <!-- [EDIT: PHONE NUMBER] -->
+    <a class="phone-big" href="tel:19515619321">(951) 561-9321</a>
+    <p class="note">Call or text to check availability in your area.</p>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">SoCal <em>Luxury Detailing</em></div>
+        <p style="font-weight:300;">Premium mobile interior and exterior detailing across Southern California.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <!-- [EDIT: PHONE NUMBER] -->
+        <a href="tel:19515619321">(951) 561-9321</a>
+        <!-- [EDIT: EMAIL] add a real email if you have one, or delete this line -->
+        <a href="mailto:ethanbaskys24@gmail.com">ethanbaskys24@gmail.com</a>
+        <!-- [EDIT: BUSINESS HOURS] -->
+        <p>24 Hours</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> SoCal Luxury Detailing. All rights reserved.</span>
+      <span>Orange County &amp; Inland Empire, CA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
