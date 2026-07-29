@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://z-skizz.github.io/socal-auto-detail.github.io/sitemap.xml
