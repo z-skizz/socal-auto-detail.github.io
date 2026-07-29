@@ -3,492 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SoCal Luxury Detailing — Interior & Exterior Detailing, Orange County & Inland Empire</title>
-<meta name="description" content="SoCal Luxury Detailing offers premium mobile interior and exterior detailing across Orange County and the Inland Empire. Call (951) 561-9321 to book.">
+<title>SoCal Luxury Detailing — Mobile Interior &amp; Exterior Detailing, Orange County &amp; Inland Empire</title>
+<meta name="description" content="SoCal Luxury Detailing brings showroom-quality mobile interior and exterior detailing to Orange County and the Inland Empire. Hand-finished, on-site. Call (951) 561-9321.">
+<link rel="canonical" href="https://z-skizz.github.io/socal-auto-detail.github.io/index.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="SoCal Luxury Detailing — Mobile Auto Detailing, Orange County &amp; Inland Empire">
+<meta property="og:description" content="Showroom perfection, delivered to your driveway. Premium mobile interior and exterior detailing across Southern California.">
+<meta property="og:image" content="https://z-skizz.github.io/socal-auto-detail.github.io/assets/img/photo-b.jpg">
+<meta property="og:url" content="https://z-skizz.github.io/socal-auto-detail.github.io/index.html">
+<meta name="twitter:card" content="summary_large_image">
 
 <!--
 ============================================================
-SOCAL AUTO DETAILING — SITE FILE MAP (read me first)
+SOCAL LUXURY DETAILING — HOME PAGE
 ============================================================
-This is a single-file website: all HTML, CSS and JS for this
-page live here. To edit anything, just find the matching
-comment below.
+Shared header/footer/CSS/JS live in assets/css/style.css and
+assets/js/main.js — edit those once, it applies to every page.
 
 QUICK EDIT INDEX
 -----------------
-[EDIT: PHONE NUMBER]  — appears several times, search for "9515619321"
-[EDIT: SERVICES]      — the two service cards (Interior Detail / Exterior Detail),
-                         add a third by copying either .service-card block
+[EDIT: PHONE NUMBER]  — search "9515619321"
+[EDIT: SERVICES]      — the service cards below "id=service"
 [EDIT: PRICING]       — inside each service card
 [EDIT: SERVICE AREA]  — city list, Orange County / Inland Empire
-[EDIT: PHOTOS]        — every spot with a photo placeholder is labeled
+[EDIT: PHOTOS]        — see assets/img/README.txt for the full shot list
 [EDIT: BUSINESS HOURS]— footer
-[EDIT: LOGO / WORDMARK] — header, currently text-based
-[EDIT: COLORS]        — CSS variables at the top of <style>, change once, applies everywhere
 ============================================================
 -->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='8' fill='%230a0b0d'/%3E%3Cpath d='M24 8l4.8 9.8L39 19l-7.5 7.3L33.5 37 24 31.6 14.5 37l2-10.7L9 19l10.2-1.2z' fill='%23c6a664'/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-/* ============================================================
-   [EDIT: COLORS] — change the palette here, it applies site-wide
-   ============================================================ */
-:root{
-  --black: #0a0b0d;       /* primary background */
-  --charcoal: #15171b;    /* secondary/alt section background */
-  --charcoal-2: #1c1f24;  /* card background */
-  --gold: #c6a664;        /* primary accent — "champagne gold" */
-  --gold-dim: #8f8058;    /* muted gold for hairlines/borders */
-  --ivory: #f3efe6;       /* primary text on dark */
-  --graphite: #9a9ea5;    /* secondary/muted text */
-  --hairline: rgba(198,166,100,0.22);
-  --display: "Cormorant", serif;
-  --body: "Manrope", sans-serif;
-}
-
-*{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; }
-body{
-  margin:0;
-  background: var(--black);
-  color: var(--ivory);
-  font-family: var(--body);
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-}
-img{ max-width:100%; display:block; }
-a{ color: inherit; }
-
-.eyebrow{
-  font-family: var(--body);
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 600;
-}
-h1,h2,h3{
-  font-family: var(--display);
-  font-weight: 500;
-  line-height: 1.08;
-  margin: 0;
-  color: var(--ivory);
-}
-.wrap{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-@media (prefers-reduced-motion: reduce){
-  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-}
-
-/* ---------------- HEADER ---------------- */
-header{
-  position: sticky;
-  top:0;
-  z-index: 50;
-  background: rgba(10,11,13,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--hairline);
-}
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  padding: 18px 32px;
-  max-width: 1120px;
-  margin: 0 auto;
-}
-/* [EDIT: LOGO / WORDMARK] — swap this span for an <img> if you get a logo made */
-.logo{
-  font-family: var(--display);
-  font-size: 1.5rem;
-  letter-spacing: 0.04em;
-  color: var(--ivory);
-  text-decoration: none;
-  display:flex;
-  align-items: baseline;
-  gap: 8px;
-}
-.logo em{ font-style: normal; color: var(--gold); }
-
-.call-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  border: 1px solid var(--gold-dim);
-  color: var(--gold);
-  text-decoration: none;
-  padding: 10px 20px;
-  font-size: 0.82rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-radius: 2px;
-  transition: background 0.25s ease, color 0.25s ease;
-  white-space: nowrap;
-}
-.call-btn:hover{ background: var(--gold); color: var(--black); }
-
-/* top nav links */
-.nav-links{
-  display:flex;
-  gap:24px;
-  align-items:center;
-  font-size:0.82rem;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  font-weight:500;
-  color:var(--graphite);
-}
-.nav-links a{
-  text-decoration:none;
-  color:inherit;
-  position:relative;
-  padding-bottom:4px;
-}
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:0; bottom:0;
-  width:0; height:1px;
-  background:var(--gold);
-  transition:width 0.22s ease;
-}
-.nav-links a:hover{ color:var(--ivory); }
-.nav-links a:hover::after{ width:100%; }
-.nav-links a.active{ color: var(--gold); }
-.nav-links a.active::after{ width:100%; }
-
-@media (max-width: 860px){
-  .nav{ flex-wrap:wrap; gap:12px; }
-  .nav-links{ order:3; width:100%; justify-content:center; flex-wrap:wrap; row-gap:8px; }
-}
-
-/* ---------------- HERO ---------------- */
-.hero{
-  position: relative;
-  padding: 130px 32px 110px;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at 50% -10%, rgba(198,166,100,0.10), transparent 60%),
-    var(--black);
-  text-align:center;
-}
-.hero-inner{ max-width: 780px; margin: 0 auto; position: relative; z-index: 2; }
-.hero .eyebrow{ display:block; margin-bottom: 22px; }
-.hero h1{
-  font-size: clamp(2.6rem, 6vw, 4.6rem);
-  letter-spacing: 0.005em;
-}
-.hero h1 .sheen{
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(100deg, var(--ivory) 30%, var(--gold) 45%, var(--ivory) 60%);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: sheen-sweep 5.5s ease-in-out 0.4s 1;
-}
-@keyframes sheen-sweep{
-  0%{ background-position: 100% 0; }
-  45%{ background-position: 0% 0; }
-  100%{ background-position: 0% 0; }
-}
-.hero p.lede{
-  margin: 26px auto 0;
-  max-width: 560px;
-  color: var(--graphite);
-  font-size: 1.08rem;
-  line-height: 1.7;
-  font-weight: 300;
-}
-.hero-cta{
-  margin-top: 42px;
-  display:flex;
-  gap:16px;
-  justify-content:center;
-  flex-wrap: wrap;
-}
-.btn-primary{
-  background: var(--gold);
-  color: var(--black);
-  text-decoration:none;
-  padding: 16px 34px;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 700;
-  border-radius: 2px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  display:inline-block;
-}
-.btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(198,166,100,0.25); }
-.btn-secondary{
-  border: 1px solid var(--hairline);
-  color: var(--ivory);
-  text-decoration:none;
-  padding: 16px 34px;
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-radius: 2px;
-  transition: border-color 0.25s ease;
-  display:inline-block;
-}
-.btn-secondary:hover{ border-color: var(--gold); }
-
-/* ---------------- SECTION GENERIC ---------------- */
-section{ padding: 100px 0; }
-.section-alt{ background: var(--charcoal); }
-.section-head{ text-align:center; max-width: 640px; margin: 0 auto 56px; }
-.section-head .eyebrow{ display:block; margin-bottom: 16px; }
-.section-head h2{ font-size: clamp(2rem, 4vw, 2.7rem); }
-.section-head p{ color: var(--graphite); margin-top: 18px; font-weight:300; line-height:1.7; }
-.divider{
-  width: 64px; height: 1px; background: var(--gold-dim);
-  margin: 22px auto 0;
-}
-
-/* ---------------- SERVICE CARDS ---------------- */
-/* [EDIT: SERVICES] — two cards below: Interior Detail and Exterior Detail.
-   Duplicate a .service-card to add a third offering later. */
-.service-grid{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  max-width: 980px;
-  margin: 0 auto;
-  align-items: stretch;
-}
-.service-card{
-  background: var(--charcoal-2);
-  border: 1px solid var(--hairline);
-  width:100%;
-  padding: 56px 44px;
-  position: relative;
-  border-radius: 4px;
-  display:flex;
-  flex-direction:column;
-}
-.service-card::before{
-  content:"";
-  position:absolute;
-  top:0; left:0; right:0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-}
-.service-card .service-name{
-  font-family: var(--display);
-  font-size: 1.9rem;
-  color: var(--ivory);
-}
-/* [EDIT: PRICING] — the price for each service */
-.service-card .price{
-  font-family: var(--display);
-  font-size: 2.6rem;
-  color: var(--gold);
-  margin: 6px 0 26px;
-}
-.service-card .price sup{ font-size: 1.1rem; top: -1.2em; }
-.service-card .price.call-price{ font-size: 2.15rem; }
-.service-card ul{
-  list-style: none;
-  padding:0;
-  margin: 0 0 34px;
-  display:grid;
-  gap: 14px;
-  flex-grow:1;
-}
-.service-card li{
-  display:flex;
-  gap: 12px;
-  font-size: 0.95rem;
-  color: var(--graphite);
-  font-weight: 300;
-  line-height:1.5;
-}
-.service-card li svg{ flex:none; margin-top:3px; }
-.service-card .btn-primary{ width:100%; text-align:center; }
-
-@media (max-width: 860px){
-  .service-grid{ grid-template-columns: 1fr; max-width: 480px; }
-}
-
-/* ---------------- PILLARS (why us) ---------------- */
-.pillars{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-.pillar{ text-align:center; padding: 0 12px; }
-.pillar .icon{ width: 46px; height:46px; margin: 0 auto 22px; color: var(--gold); }
-.pillar h3{ font-size: 1.3rem; margin-bottom: 10px; }
-.pillar p{ color: var(--graphite); font-size: 0.92rem; line-height:1.7; font-weight:300; margin:0; }
-
-/* ---------------- SERVICE AREA ---------------- */
-.area-layout{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items:center;
-}
-.area-copy p{ color: var(--graphite); line-height:1.8; font-weight:300; }
-.region-list{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 24px;
-  list-style:none;
-  padding:0;
-  margin: 26px 0 0;
-}
-.region-list li{
-  font-size: 0.92rem;
-  color: var(--ivory);
-  padding-left: 16px;
-  position:relative;
-  font-weight: 300;
-}
-.region-list li::before{
-  content:"";
-  position:absolute; left:0; top:0.55em;
-  width:5px; height:5px;
-  background: var(--gold);
-  transform: rotate(45deg);
-}
-.region-group-label{
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin: 22px 0 4px;
-  font-weight: 700;
-}
-.region-group-label:first-child{ margin-top:0; }
-
-/* [EDIT: PHOTOS] — decorative photo placeholder for the service-area section.
-   Replace this whole .photo-frame block with:
-   <img src="your-photo.jpg" alt="Detailed vehicle in Orange County" style="width:100%;border-radius:4px;">
-*/
-.photo-frame{
-  aspect-ratio: 4/5;
-  border: 1px solid var(--hairline);
-  border-radius: 4px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: linear-gradient(160deg, var(--charcoal-2), var(--black));
-  position:relative;
-  overflow:hidden;
-}
-.photo-frame .placeholder-text{
-  color: var(--gold-dim);
-  font-size: 0.78rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-align:center;
-  padding: 20px;
-  border: 1px dashed var(--hairline);
-  margin: 20px;
-}
-
-/* ---------------- FINAL CTA ---------------- */
-.cta-band{
-  text-align:center;
-  background: linear-gradient(180deg, var(--charcoal), var(--black));
-  border-top: 1px solid var(--hairline);
-  border-bottom: 1px solid var(--hairline);
-}
-.cta-band h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 20px; }
-.cta-band .phone-big{
-  font-family: var(--display);
-  color: var(--gold);
-  font-size: clamp(2rem, 5vw, 3rem);
-  text-decoration:none;
-  letter-spacing: 0.02em;
-}
-.cta-band p.note{ color: var(--graphite); margin-top: 16px; font-weight:300; }
-
-/* ---------------- FOOTER ---------------- */
-footer{ padding: 64px 0 40px; }
-.footer-grid{
-  display:grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 48px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--hairline);
-}
-.footer-col h4{
-  font-family: var(--body);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin: 0 0 18px;
-  font-weight: 700;
-}
-.footer-col p, .footer-col a{
-  display:block;
-  color: var(--graphite);
-  text-decoration:none;
-  font-size: 0.92rem;
-  line-height: 2;
-  font-weight:300;
-}
-.footer-col a:hover{ color: var(--gold); }
-.footer-logo{
-  font-family: var(--display);
-  font-size: 1.6rem;
-  color: var(--ivory);
-  margin-bottom: 12px;
-}
-.footer-logo em{ font-style:normal; color: var(--gold); }
-.footer-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding-top: 28px;
-  color: var(--graphite);
-  font-size: 0.8rem;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* ---------------- RESPONSIVE ---------------- */
-@media (max-width: 860px){
-  .pillars{ grid-template-columns: 1fr; gap: 44px; }
-  .area-layout{ grid-template-columns: 1fr; }
-  .photo-frame{ aspect-ratio: 16/9; order: -1; }
-  .footer-grid{ grid-template-columns: 1fr; gap: 32px; }
-  .nav{ padding: 16px 20px; }
-  .call-btn span.full{ display:none; }
-}
-@media (max-width: 480px){
-  .hero{ padding: 100px 20px 80px; }
-  section{ padding: 72px 0; }
-  .service-card{ padding: 40px 28px; }
-}
-
-/* focus visibility for accessibility */
-a:focus-visible, button:focus-visible{
-  outline: 2px solid var(--gold);
-  outline-offset: 3px;
-}
-</style>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <!-- ================= HEADER ================= -->
 <header>
   <div class="nav">
-    <a href="index.html#top" class="logo">SoCal <em>Luxury Detailing</em></a>
+    <a href="index.html#top" class="logo">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4l4.5 9.2L38.8 15l-7.4 7.2L33.4 33 24 27.8 14.6 33l2-10.8L9.2 15l10.3-1.8z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+      SoCal <em>Luxury Detailing</em>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
     <nav class="nav-links">
       <a href="about.html">About Us</a>
       <a href="our-work.html">Our Work</a>
@@ -504,6 +67,10 @@ a:focus-visible, button:focus-visible{
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
+  <!-- [EDIT: PHOTOS] Photo B — 16:9, nighttime lighting rig + stepping stool,
+       BMW X330M on the driveway. Drop a file at assets/img/photo-b.jpg and
+       it appears here automatically at partial opacity, behind the text. -->
+  <div class="hero-bg-photo" style="background-image:url('assets/img/photo-b.jpg');"></div>
   <div class="hero-inner">
     <span class="eyebrow">Southern California · Mobile Auto Detailing</span>
     <h1>Showroom perfection,<br><span class="sheen">delivered to your driveway.</span></h1>
@@ -516,13 +83,18 @@ a:focus-visible, button:focus-visible{
       <a class="btn-primary" href="tel:19515619321">Book by Phone</a>
       <a class="btn-secondary" href="#service">View Services &amp; Pricing</a>
     </div>
+    <div class="hero-badges">
+      <span><svg viewBox="0 0 24 24" fill="none"><path d="M12 2l2.6 5.6L21 8.5l-4.5 4.5 1.1 6.4L12 16.6l-5.6 2.8 1.1-6.4L3 8.5l6.4-.9z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg> Fully Mobile — We Come To You</span>
+      <span><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hand-Finished, Every Panel</span>
+      <span><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.3"/><path d="M12 7v5l3.2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Most Requests Confirmed Same Day</span>
+    </div>
   </div>
 </section>
 
 <!-- ================= SERVICES ================= -->
 <section id="service">
   <div class="wrap">
-    <div class="section-head">
+    <div class="section-head reveal">
       <span class="eyebrow">The Services</span>
       <h2>Interior &amp; Exterior Detailing</h2>
       <div class="divider"></div>
@@ -531,64 +103,32 @@ a:focus-visible, button:focus-visible{
     <div class="service-grid">
 
       <!-- [EDIT: SERVICES] Card 1 — Interior Detail -->
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-name">Interior Detail</div>
         <!-- [EDIT: PRICING] -->
         <div class="price"><sup>$</sup>140</div>
         <ul>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Complete vacuum — seats, carpets, trunk, and trim
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Steam-cleaned and conditioned upholstery or leather
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Dash, console, and door panel detailing with UV-safe protectant
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Streak-free interior glass and mirrors
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Odor neutralization, not just fragrance masking
-          </li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Complete vacuum — seats, carpets, trunk, and trim</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Steam-cleaned and conditioned upholstery or leather</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Dash, console, and door panel detailing with UV-safe protectant</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Streak-free interior glass and mirrors</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Odor neutralization, not just fragrance masking</li>
         </ul>
-        <!-- Note: the inclusions above are a reasonable starting list — confirm/edit them to exactly match what you deliver. -->
         <a class="btn-primary" href="tel:19515619321">Call to Book — (951) 561-9321</a>
       </div>
 
       <!-- [EDIT: SERVICES] Card 2 — Exterior Detail -->
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-name">Exterior Detail</div>
-        <!-- [EDIT: PRICING] — replace with a set price or starting price once you decide -->
+        <!-- [EDIT: PRICING] -->
         <div class="price call-price"><sup>$</sup>79</div>
         <ul>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Hand wash, foam bath, and safe-touch decontamination
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Wheel, tire, and wheel-well cleaning with tire dressing
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Clay bar treatment to strip bonded contaminants from paint
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Hand-applied wax or sealant for lasting paint protection
-          </li>
-          <li>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
-            Streak-free exterior glass and trim dressing
-          </li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Hand wash, foam bath, and safe-touch decontamination</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Wheel, tire, and wheel-well cleaning with tire dressing</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Clay bar treatment to strip bonded contaminants from paint</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Hand-applied wax or sealant for lasting paint protection</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8.5L6 12.5L14 3.5" stroke="currentColor" stroke-width="1.6"/></svg>Streak-free exterior glass and trim dressing</li>
         </ul>
-        <!-- Note: the inclusions above are a reasonable starting list — confirm/edit them to exactly match what you deliver. -->
         <a class="btn-primary" href="tel:19515619321">Call to Book — (951) 561-9321</a>
       </div>
 
@@ -596,26 +136,57 @@ a:focus-visible, button:focus-visible{
   </div>
 </section>
 
-<!-- ================= WHY US / PILLARS ================= -->
-<section class="section-alt">
+<!-- ================= TRUST BAND ================= -->
+<section class="section-alt" style="padding: 56px 0;">
   <div class="wrap">
-    <div class="section-head">
+    <div class="trust-band reveal">
+      <div class="trust-item">
+        <div class="trust-stars" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.7 5.9L19 7.6l-4.6 4.4 1.2 6.5L10 15.3l-5.6 3.2 1.2-6.5L1 7.6l6.3-.7z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.7 5.9L19 7.6l-4.6 4.4 1.2 6.5L10 15.3l-5.6 3.2 1.2-6.5L1 7.6l6.3-.7z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.7 5.9L19 7.6l-4.6 4.4 1.2 6.5L10 15.3l-5.6 3.2 1.2-6.5L1 7.6l6.3-.7z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.7 5.9L19 7.6l-4.6 4.4 1.2 6.5L10 15.3l-5.6 3.2 1.2-6.5L1 7.6l6.3-.7z"/></svg>
+          <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.7 5.9L19 7.6l-4.6 4.4 1.2 6.5L10 15.3l-5.6 3.2 1.2-6.5L1 7.6l6.3-.7z"/></svg>
+        </div>
+        <!-- [EDIT: REVIEWS] link to your real Google Business Profile once live -->
+        <a class="trust-label" href="#" target="_blank" rel="noopener">See Our Google Reviews</a>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">100%</div>
+        <div class="trust-label">Hand-Finished, On-Site</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">2</div>
+        <div class="trust-label">Regions Served — OC &amp; IE</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">24/7</div>
+        <div class="trust-label">Booking By Call Or Text</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY US / PILLARS ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
       <span class="eyebrow">The Standard</span>
       <h2>Detail work, done properly.</h2>
       <div class="divider"></div>
     </div>
     <div class="pillars">
-      <div class="pillar">
+      <div class="pillar reveal">
         <svg class="icon" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.2"/><path d="M24 14v10l7 5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
         <h3>Meticulous by Habit</h3>
         <p>Every panel, vent, and seam is worked by hand — nothing is rushed to hit a quota.</p>
       </div>
-      <div class="pillar">
+      <div class="pillar reveal">
         <svg class="icon" viewBox="0 0 48 48" fill="none"><rect x="8" y="18" width="32" height="14" rx="2" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="34" r="3" stroke="currentColor" stroke-width="1.2"/><circle cx="32" cy="34" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 24l4-8h12l4 8" stroke="currentColor" stroke-width="1.2"/></svg>
         <h3>We Come to You</h3>
         <p>Home, office, or curbside — fully mobile service across the OC and IE.</p>
       </div>
-      <div class="pillar">
+      <div class="pillar reveal">
         <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 8l4 8 9 1-6.5 6.5L32 32l-8-4.5L16 32l1.5-8.5L11 17l9-1z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
         <h3>Premium Materials Only</h3>
         <p>pH-balanced interior products and paint-safe exterior chemicals, selected for leather, alcantara, clear coat, and factory finishes.</p>
@@ -625,10 +196,10 @@ a:focus-visible, button:focus-visible{
 </section>
 
 <!-- ================= SERVICE AREA ================= -->
-<section id="area">
+<section class="section-alt" id="area">
   <div class="wrap">
-    <div class="area-layout">
-      <div class="area-copy">
+    <div class="split-layout">
+      <div class="split-copy reveal">
         <span class="eyebrow">Where We Work</span>
         <h2 style="margin:14px 0 20px; font-size:clamp(1.9rem,3.6vw,2.4rem);">Orange County &amp; the Inland Empire</h2>
         <p>
@@ -657,12 +228,17 @@ a:focus-visible, button:focus-visible{
           <li>Rancho Cucamonga</li>
         </ul>
       </div>
-      <!-- [EDIT: PHOTOS] Replace this whole placeholder with a real photo of your work -->
-      <div class="photo-frame">
-        <div class="placeholder-text">
-          Photo placeholder<br>Swap for a before/after or finished vehicle shot<br>(recommended: portrait, 4:5)
-        </div>
-      </div>
+
+      <!-- [EDIT: PHOTOS] Photo C — 9:16 vertical, technician detailing a
+           Tesla hood close-up with a microfiber towel. File:
+           assets/img/photo-c.jpg -->
+      <figure class="media-slot ar-4x5 reveal" data-slot="c">
+        <img src="assets/img/photo-c.jpg" alt="Technician hand-polishing a Tesla hood with a microfiber towel" loading="lazy" onerror="this.parentElement.classList.add('is-missing')">
+        <figcaption class="slot-fallback">
+          <span class="slot-tag">Photo C · 9:16 vertical</span>
+          Close-up: technician cleaning a Tesla hood with a microfiber towel.<br>Add file: assets/img/photo-c.jpg
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -670,10 +246,10 @@ a:focus-visible, button:focus-visible{
 <!-- ================= FINAL CTA ================= -->
 <section class="cta-band">
   <div class="wrap" style="max-width:640px;">
-    <h2>Ready for a showroom finish?</h2>
+    <h2 class="reveal">Ready for a showroom finish?</h2>
     <!-- [EDIT: PHONE NUMBER] -->
-    <a class="phone-big" href="tel:19515619321">(951) 561-9321</a>
-    <p class="note">Call or text to check availability in your area.</p>
+    <a class="phone-big reveal" href="tel:19515619321">(951) 561-9321</a>
+    <p class="note reveal">Call or text to check availability in your area.</p>
   </div>
 </section>
 
@@ -682,17 +258,33 @@ a:focus-visible, button:focus-visible{
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="footer-logo">SoCal <em>Luxury Detailing</em></div>
+        <div class="footer-logo">
+          <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4l4.5 9.2L38.8 15l-7.4 7.2L33.4 33 24 27.8 14.6 33l2-10.8L9.2 15l10.3-1.8z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          SoCal <em>Luxury Detailing</em>
+        </div>
         <p style="font-weight:300;">Premium mobile interior and exterior detailing across Southern California.</p>
+        <div class="footer-social">
+          <!-- [EDIT: SOCIAL LINKS] replace # with your real profile URLs -->
+          <a href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="Yelp"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v9M12 2l4 6M12 2L8 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="16" r="6" stroke="currentColor" stroke-width="1.4"/></svg></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="Google Reviews"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12a8 8 0 1 1 2.6 5.9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M4 12h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a>
+        </div>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <!-- [EDIT: PHONE NUMBER] -->
         <a href="tel:19515619321">(951) 561-9321</a>
-        <!-- [EDIT: EMAIL] add a real email if you have one, or delete this line -->
+        <!-- [EDIT: EMAIL] -->
         <a href="mailto:ethanbaskys24@gmail.com">ethanbaskys24@gmail.com</a>
         <!-- [EDIT: BUSINESS HOURS] -->
-        <p>24 Hours</p>
+        <p>Open 24 Hours</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="about.html">About Us</a>
+        <a href="our-work.html">Our Work</a>
+        <a href="book.html">Book An Appointment</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -702,9 +294,40 @@ a:focus-visible, button:focus-visible{
   </div>
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+<!-- ================= STICKY MOBILE CALL BAR ================= -->
+<div class="mobile-call-bar">
+  <a class="mcb-call" href="tel:19515619321">Call Now</a>
+  <a class="mcb-text" href="sms:19515619321">Text to Book</a>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SoCal Luxury Detailing",
+  "image": "https://z-skizz.github.io/socal-auto-detail.github.io/assets/img/photo-b.jpg",
+  "url": "https://z-skizz.github.io/socal-auto-detail.github.io/index.html",
+  "telephone": "+19515619321",
+  "email": "ethanbaskys24@gmail.com",
+  "priceRange": "$$",
+  "areaServed": [
+    "Irvine, CA", "Newport Beach, CA", "Anaheim, CA", "Huntington Beach, CA",
+    "Mission Viejo, CA", "Costa Mesa, CA", "Riverside, CA", "Corona, CA",
+    "San Bernardino, CA", "Ontario, CA", "Temecula, CA", "Rancho Cucamonga, CA"
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Interior Detail" }, "price": "140", "priceCurrency": "USD" },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Exterior Detail" }, "price": "79", "priceCurrency": "USD" }
+  ]
+}
 </script>
 
+<script src="assets/js/main.js"></script>
 </body>
 </html>
